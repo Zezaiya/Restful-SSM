@@ -23,7 +23,6 @@ public class BookController {
 
     @GetMapping
     public Result getAll() {
-        int a=1/0;
         List<Book> bookList=bookService.getAll();
         Integer code=bookList!=null ? Code.GET_OK:Code.GET_ERR;
         String msg=bookList!=null? "":"数据查询失败,请重试";

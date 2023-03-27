@@ -1,5 +1,7 @@
 package com.zezai.controller;
 
+import com.zezai.exception.BusinessException;
+import com.zezai.exception.SystemException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
@@ -7,7 +9,21 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class ProjectExceptionAdvice {
     @ExceptionHandler(Exception.class)    //表示该方法处理什么类型的异常
     public Result doException(Exception exception){
-        String msg="异常可抓到你咯";
-        return new Result(666,null,msg);   //对异常的处理方式
+        return new Result(Code.SYSTEM_UNKNOWN_ERR,null,"系统繁忙,请稍后再试");   //对异常的处理方式
+    }
+
+
+    @ExceptionHandler(SystemException.class)          //拦截(自定义)系统异常
+    public Result doSystemException(SystemException exception){
+        //记录日志
+        //发消息给运维
+        //发邮件给开发人员
+        return new Result(exception.getCode(),null,exception.getMessage());
+    }
+
+
+    @ExceptionHandler(BusinessException.class)          //拦截(自定义)系统异常
+    public Result doBusinessException(BusinessException exception){
+        return new Result(exception.getCode(),null,exception.getMessage());
     }
 }

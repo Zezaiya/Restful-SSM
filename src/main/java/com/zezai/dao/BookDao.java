@@ -10,13 +10,13 @@ import java.util.List;
 
 public interface BookDao {
     @Insert("insert into tbl_book values(null,#{type},#{name},#{description})")
-    void save(Book book);
+    int save(Book book);
 
     @Delete("delete from tbl_book where id=#{id}")
-    void delete(Integer id);
+    int delete(Integer id);
 
     @Update("update tbl_book set name=#{name},type=#{type},description=#{description} where id=#{id}")
-    void update(Book book);
+    int update(Book book);
 
     @Select("select * from tbl_book where id=#{id}")
     Book getById(Integer id);

@@ -1,3 +1,4 @@
+com\zezai\exception\SystemException.class
 com\zezai\config\SpringMvcConfig.class
 com\zezai\controller\ProjectExceptionAdvice.class
 com\zezai\service\BookService.class
@@ -5,6 +6,7 @@ com\zezai\config\ServletContainerInitConfig.class
 com\zezai\config\SpringMvcSupport.class
 com\zezai\controller\Code.class
 com\zezai\dao\BookDao.class
+com\zezai\exception\BusinessException.class
 com\zezai\controller\BookController.class
 com\zezai\controller\Result.class
 com\zezai\domain\Book.class
