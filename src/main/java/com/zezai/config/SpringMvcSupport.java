@@ -1,14 +1,12 @@
 package com.zezai.config;
 
-
-import com.zezai.controller.Interceptor;
+                        /*该类可以简化开发,全部写在SpringMvc的类里,不过耦合性会提升*/
+import com.zezai.controller.interception.Interceptor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 
-@Configuration  //设置它为配置类,但是需要在核心配置类的包扫描里写上config路径
+//@Configuration  //设置它为配置类,但是需要在核心配置类的包扫描里写上config路径
 public class SpringMvcSupport extends WebMvcConfigurationSupport {
     @Autowired
     private Interceptor interceptor;
@@ -20,10 +18,5 @@ public class SpringMvcSupport extends WebMvcConfigurationSupport {
         registry.addResourceHandler("/js/**").addResourceLocations("/js/");
         registry.addResourceHandler("/css/**").addResourceLocations("/css/");
         registry.addResourceHandler("/plugins/**").addResourceLocations("/plugins/");
-    }
-
-    @Override
-    protected void addInterceptors(InterceptorRegistry registry) {  //添加拦截器要拦截的资源
-        registry.addInterceptor(interceptor).addPathPatterns("/pages/");
     }
 }

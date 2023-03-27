@@ -1,4 +1,5 @@
 com\zezai\exception\SystemException.class
+com\zezai\controller\interception\Interceptor.class
 com\zezai\config\SpringMvcConfig.class
 com\zezai\controller\ProjectExceptionAdvice.class
 com\zezai\service\BookService.class
@@ -10,3 +11,4 @@ com\zezai\exception\BusinessException.class
 com\zezai\controller\BookController.class
 com\zezai\controller\Result.class
 com\zezai\domain\Book.class
+com\zezai\controller\interception\Interceptor2.class
